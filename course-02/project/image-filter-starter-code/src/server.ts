@@ -10,6 +10,8 @@ import validUrl from 'valid-url';
 
   // Set the network port
   const port = process.env.PORT || 8082;
+  // Udacity Project Submission Review Edit: 
+  let image_url: string
   
   // Use the body parser middleware for post requests
   app.use(bodyParser.json());
@@ -31,7 +33,7 @@ import validUrl from 'valid-url';
   /**************************************************************************** */
 
   app.get("/filteredimage/", async (req, res) => {
-    let { image_url } = req.query
+    image_url = req.query
     //Check if there is any url at all
     if (!image_url) {
       console.error('No image url')
